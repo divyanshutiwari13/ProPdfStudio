@@ -1,8 +1,4 @@
 import { NextResponse } from "next/server";
-import { getDocument, GlobalWorkerOptions } from "pdfjs-dist";
-
-// Set worker path for server-side
-GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js`;
 
 // Note: PDF to Images conversion is complex on server-side
 // This is a simplified version - for production, consider using a dedicated service

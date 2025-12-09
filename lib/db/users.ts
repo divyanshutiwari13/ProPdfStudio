@@ -31,17 +31,21 @@ export async function createUser(email: string, password: string, name: string):
 
 export async function getUserByEmail(email: string): Promise<User | null> {
   const db = await getDatabase();
-  const collection = db.collection<User>(COLLECTION_NAME);
-  const user = await collection.findOne({ email });
-  return user;
+  const collection = db.collection(COLLECTION_NAME);
+  const user = (await collection.findOne({ email })) as (User & { _id?: ObjectId }) | null;
+  if (!user) return null;
+
+  return { ...user, _id: user._id?.toString() };
 }
 
 export async function getUserById(id: string): Promise<User | null> {
   const db = await getDatabase();
-  const collection = db.collection<User>(COLLECTION_NAME);
+  const collection = db.collection(COLLECTION_NAME);
   try {
-    const user = await collection.findOne({ _id: new ObjectId(id) });
-    return user;
+    const user = (await collection.findOne({ _id: new ObjectId(id) })) as (User & { _id?: ObjectId }) | null;
+    if (!user) return null;
+
+    return { ...user, _id: user._id?.toString() };
   } catch {
     return null;
   }

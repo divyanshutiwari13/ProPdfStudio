@@ -1,9 +1,17 @@
 import { tools } from "@/lib/tools";
 import ToolCard from "@/components/ToolCard";
 
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "All PDF Tools - ProPDF Studio",
-  description: "Browse all available PDF tools: merge, split, compress, convert and more.",
+  description: "Browse all available PDF tools: merge, split, compress, convert PDFs and more. Free online PDF toolkit for all your document needs.",
+  keywords: ["PDF tools", "PDF utilities", "PDF editor", "PDF toolkit", "free PDF tools", "online PDF tools"],
+  openGraph: {
+    title: "All PDF Tools - ProPDF Studio",
+    description: "Browse all available PDF tools: merge, split, compress, convert PDFs and more.",
+    type: "website",
+  },
 };
 
 export default function ToolsPage() {

@@ -8,6 +8,8 @@ import { SerializableUploadedFile, UploadedFile } from "@/types";
 import { createActivity } from "@/lib/db/activities";
 import { getCurrentUser } from "@/lib/auth";
 
+export type { CompressionLevel } from "@/lib/pdf/compress";
+
 // Convert serializable file to UploadedFile format
 function deserializeFile(file: SerializableUploadedFile): UploadedFile {
   const buffer = Buffer.from(file.data, "base64");

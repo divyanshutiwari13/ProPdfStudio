@@ -1,6 +1,12 @@
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "Terms of Service - ProPDF Studio",
-  description: "Terms of service for ProPDF Studio",
+  description: "Read ProPDF Studio's terms of service. Understand the terms and conditions for using our free PDF tools.",
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function TermsPage() {
@@ -27,11 +33,11 @@ export default function TermsPage() {
         <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">Limitations</h2>
         <p className="text-gray-700 mb-4">
           You may not use ProPDF Studio in any way that could damage, disable, or impair the
-          service or interfere with any other party's use of the service.
+          service or interfere with any other party&apos;s use of the service.
         </p>
         <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">Disclaimer</h2>
         <p className="text-gray-700">
-          The materials on ProPDF Studio are provided on an 'as is' basis. ProPDF Studio makes no
+          The materials on ProPDF Studio are provided on an &apos;as is&apos; basis. ProPDF Studio makes no
           warranties, expressed or implied, and hereby disclaims all other warranties.
         </p>
       </div>

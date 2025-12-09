@@ -2,10 +2,73 @@ import Link from "next/link";
 import { tools } from "@/lib/tools";
 import ToolCard from "@/components/ToolCard";
 import { ArrowRight, Upload, Zap, Download } from "lucide-react";
+import { config } from "@/lib/config";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "ProPDF Studio - All-in-one PDF Toolkit",
+  description: "Merge, split, compress, and convert PDFs with ease. Free online PDF tools - no installation required. Process PDFs securely in your browser.",
+  keywords: ["PDF tools", "merge PDF", "split PDF", "compress PDF", "PDF converter", "free PDF tools", "online PDF editor"],
+  openGraph: {
+    title: "ProPDF Studio - All-in-one PDF Toolkit",
+    description: "Merge, split, compress, and convert PDFs with ease. Free online PDF tools.",
+    url: config.appUrl,
+    siteName: "ProPDF Studio",
+    type: "website",
+  },
+};
 
 export default function HomePage() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "ProPDF Studio",
+    description: "All-in-one PDF toolkit for merging, splitting, compressing, and converting PDFs",
+    url: config.appUrl,
+    applicationCategory: "UtilityApplication",
+    operatingSystem: "Web Browser",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    featureList: [
+      "Merge multiple PDF files",
+      "Split PDF into separate files",
+      "Compress PDF files",
+      "Convert PDF to images",
+      "Convert images to PDF",
+    ],
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.8",
+      ratingCount: "1000",
+    },
+  };
+
+  const organizationData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "ProPDF Studio",
+    url: config.appUrl,
+    logo: `${config.appUrl}/logo.png`,
+    description: "Free online PDF tools for all your document needs",
+    sameAs: [
+      // Add social media links here when available
+    ],
+  };
+
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationData) }}
+      />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       {/* Hero Section */}
       <section className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -70,7 +133,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }
 

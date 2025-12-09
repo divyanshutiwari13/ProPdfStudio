@@ -1,6 +1,14 @@
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "Contact Us - ProPDF Studio",
-  description: "Get in touch with ProPDF Studio",
+  description: "Get in touch with ProPDF Studio. Have questions or need help? Contact our support team for assistance with PDF tools.",
+  keywords: ["contact", "support", "help", "ProPDF Studio contact"],
+  openGraph: {
+    title: "Contact Us - ProPDF Studio",
+    description: "Get in touch with ProPDF Studio. Have questions or need help? Contact our support team.",
+    type: "website",
+  },
 };
 
 export default function ContactPage() {
@@ -9,7 +17,7 @@ export default function ContactPage() {
       <h1 className="text-4xl font-bold text-gray-900 mb-8">Contact Us</h1>
       <div className="card">
         <p className="text-gray-700 mb-6">
-          Have a question or need help? We'd love to hear from you!
+          Have a question or need help? We&apos;d love to hear from you!
         </p>
         <div className="space-y-4">
           <div>

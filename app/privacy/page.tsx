@@ -1,6 +1,12 @@
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "Privacy Policy - ProPDF Studio",
-  description: "Privacy policy for ProPDF Studio",
+  description: "Read ProPDF Studio's privacy policy. Learn how we protect your data and handle file processing securely.",
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function PrivacyPage() {

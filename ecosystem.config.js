@@ -2,8 +2,9 @@ module.exports = {
   apps: [
     {
       name: "propdf-studio",
-      script: "npm",
-      args: "start",
+      // Build first, then start production server
+      script: "bash",
+      args: "-c 'npm run build && npm start'",
       cwd: "./",
       instances: 1,
       exec_mode: "fork",

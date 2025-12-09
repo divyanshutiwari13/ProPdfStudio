@@ -8,7 +8,7 @@ import { Download, Clock, FileText, User } from "lucide-react";
 export default async function DashboardPage() {
   const user = await getCurrentUser();
 
-  if (!user) {
+  if (!user || !user.id) {
     redirect("/login");
   }
 
@@ -38,7 +38,7 @@ export default async function DashboardPage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="mb-8">
         <h1 className="text-4xl font-bold text-gray-900 mb-2">Dashboard</h1>
-        <p className="text-lg text-gray-600">Welcome back, {user.name || user.email}! Here's your activity history.</p>
+        <p className="text-lg text-gray-600">Welcome back, {user.name || user.email}! Here&apos;s your activity history.</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
